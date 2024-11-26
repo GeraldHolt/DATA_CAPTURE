@@ -119,7 +119,7 @@ if "model_number_group" not in st.session_state:
 if "brand" not in st.session_state:
     st.session_state["brand"] = ""
 if "speed" not in st.session_state:
-    st.session_state["speed"] = "760"  # Default speed
+    st.session_state["speed"] = "720"  # Default speed
 if "blade_angle" not in st.session_state:
     st.session_state["blade_angle"] = "5°"
 if "drive_train" not in st.session_state:
@@ -153,7 +153,7 @@ if selected_model != "Add New Model":
 else:
     st.session_state["model_number_group"] = ""
     st.session_state["brand"] = ""
-    st.session_state["speed"] = "760"
+    st.session_state["speed"] = "720"
     st.session_state["blade_angle"] = "5°"
     st.session_state["drive_train"] = "Direct Drive"
 
@@ -174,7 +174,7 @@ with colA:
     )
 
     # Fan Speed
-    speed = st.selectbox("Fan Impeller Speed", ["760", "960", "1450", "2990"], index=["760", "960", "1450", "2990"].index(st.session_state["speed"]))
+    speed = st.selectbox("Fan Impeller Speed", ["720", "960", "1440", "2880"], index=["720", "960", "1440", "2880"].index(st.session_state["speed"]))
 
     # Blade Angle
     blade_angle = st.selectbox(
