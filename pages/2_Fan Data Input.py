@@ -174,7 +174,24 @@ with colA:
     )
 
     # Fan Speed
-    speed = st.selectbox("Fan Impeller Speed", ["720", "960", "1440", "2880"], index=["720", "960", "1440", "2880"].index(st.session_state["speed"]))
+    if drive_train == "Direct Drive":
+        speed = st.selectbox(
+            "Fan Impeller Speed",
+            ["720", "960", "1440", "2880"],
+            index=["720", "960", "1440", "2880"].index(st.session_state["speed"])
+        )
+
+    else:
+        speed = st.number_input(
+            "Enter Impeller Speed",
+            min_value=0,
+            max_value=5000,
+            step=1,
+            value=int(st.session_state.get("speed", "720")),
+            key="speed"
+        )
+
+
 
     # Blade Angle
     blade_angle = st.selectbox(
