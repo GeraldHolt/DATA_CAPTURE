@@ -7,8 +7,7 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode
-from st_aggrid import GridUpdateMode
+
 
 from pages import *
 
