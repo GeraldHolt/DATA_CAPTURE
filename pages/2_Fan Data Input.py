@@ -163,7 +163,11 @@ colA, colB = st.columns(2)
 with colA:
     # Input fields
     model_number_group = st.text_input("Enter Fan Model Group", value=st.session_state["model_number_group"])
-    brand = st.selectbox("Select Fan Brand", options=["Select a Brand"] + brand_options, index=brand_options.index(st.session_state["brand"]) + 1 if st.session_state["brand"] in brand_options else 0)
+    brand = st.selectbox(
+        "Select Fan Brand",
+        options=["Select a Brand"] + brand_options,
+        index=brand_options.index(st.session_state["brand"]) + 1 if st.session_state["brand"] in brand_options else 0
+    )
 
     # Drive Train Selection
     drive_train = st.radio(
@@ -178,20 +182,18 @@ with colA:
         speed = st.selectbox(
             "Fan Impeller Speed",
             ["720", "960", "1440", "2880"],
-            index=["720", "960", "1440", "2880"].index(st.session_state["speed"])
+            index=["720", "960", "1440", "2880"].index(st.session_state["speed"]),
+            key="speed"
         )
-
     else:
         speed = st.number_input(
             "Enter Impeller Speed",
             min_value=0,
             max_value=5000,
             step=1,
-            value=int(st.session_state.get("speed", "720")),
+            value=int(st.session_state["speed"]),
             key="speed"
         )
-
-
 
     # Blade Angle
     blade_angle = st.selectbox(
@@ -225,7 +227,6 @@ if st.button("Save Model"):
 with colB:
     st.subheader("Model Number:")
     st.subheader(f'***{model_number}***')
-
 
 
     # # Plot the pump curve and best-fit polynomial
